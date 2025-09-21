@@ -1,8 +1,12 @@
 import { Text, Card, Box, Space } from '@mantine/core'
 // import icon from '../../assets/basket2.svg'
+import useProducts from '../../hooks/useProducts.tsx'
 
 
 export default function Main() {
+	const { catalog } = useProducts()
+
+	console.log(catalog)
 
 	return (
 		<>
@@ -11,7 +15,9 @@ export default function Main() {
 					<Space h={60} />
 					<Text component='h2' fz={32} fw={600}>Catalog</Text>
 					<Space h={49} />
-					<Card>cards</Card>
+					<Card>
+						{/* <Text>{catalog}</Text> */}
+					</Card>
 				</Box>
 			</Box>
 		</>
