@@ -9,11 +9,18 @@ type Catalog = {
 	catalog: Product[],
 }
 
-
+// interface ProductCardProps {
+// 	id: string;
+// 	name: string;
+// 	image: string;
+// 	price: number;
+// 	unit: string; // например "1 kg"
+// 	onAddToCart: (id: string, quantity: number) => void;
+// }
 
 export default function ProdutCart(catalog: Catalog) {
-	const [value, { increment, decrement }] = useCounter(1, { min: 0 });
 
+	const [value, { increment, decrement }] = useCounter(1, { min: 0 });
 
 	console.log(catalog)
 
@@ -21,10 +28,13 @@ export default function ProdutCart(catalog: Catalog) {
 		<Card bdrs={24}>
 
 			<Card.Section>
-				<Image></Image>
+				{/* <Image src={image}></Image> */}
 			</Card.Section>
 
-			<Group></Group>
+			<Group>
+				{/* <Text>{catalog.name}</Text> */}
+				<Text>inut</Text>
+			</Group>
 
 			<Group>
 				<ActionIcon onClick={decrement} bg={'#DEE2E6'} size={30} bdrs={8}><IconMinus size={12} color="black" /></ActionIcon>
@@ -33,12 +43,13 @@ export default function ProdutCart(catalog: Catalog) {
 			</Group>
 
 			<Group>
+				<Text>$ price * quality</Text>
 				<Button
 					leftSection={<Text>Add to card</Text>}
 					rightSection={<Image src={icon}></Image>}>
 				</Button>
 			</Group>
 
-		</Card>
+		</Card >
 	)
 }
