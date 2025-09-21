@@ -1,4 +1,5 @@
 import { Box, Text, Button } from '@mantine/core'
+// import { IconPhoto } from '@tabler/icons-react';
 
 export default function Header() {
 
@@ -23,11 +24,12 @@ export default function Header() {
 				<Text>SHOP</Text>
 			</Box>
 			<Box>
-				<Button>
-					Bascek
+				<Button color='#54B46A'>
+					<Text>Cart</Text>
+					<Box ><a href='./'></a></Box>
 				</Button>
 			</Box>
-		</Box>
+		</Box >
 
 	)
 }	
