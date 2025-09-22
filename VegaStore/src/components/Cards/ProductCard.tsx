@@ -5,11 +5,12 @@ import Stepper from "../Stepper/Stepper";
 // import { useCounter } from "@mantine/hooks";
 import { useContext, useState } from "react";
 import { ContextQuantity } from "../../App";
+export type { ContextQuantity } from '../../App'
 
 
 export default function ProdutCart({ id, name, price, image }: Product) {
 
-	const { setQuantity } = useContext(ContextQuantity)
+	const { setQuantity } = useContext(ContextQuantity) as ContextQuantity
 	// const { setCart } = useContext(ContextCart)
 
 
