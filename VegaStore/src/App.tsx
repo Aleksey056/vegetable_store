@@ -13,7 +13,7 @@ export type ContextQuantity = {
 
 export type ContextCart = {
 	cart: Product[],
-	setCart: () => void,
+	setCart: ({ }) => void,
 }
 
 // export const Context = createContext([])
