@@ -16,7 +16,8 @@ export default function Main() {
 					<Group wrap='wrap'>
 						{loading ? 'Происходит загрузка продуктов' :
 							catalog.map(({ id, name, price, image, category }) => (<ProdutCart
-								key={id + name}
+								key={`${id}+${name}`}
+								id={id}
 								name={name}
 								price={price}
 								image={image}
