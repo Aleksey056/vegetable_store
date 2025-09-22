@@ -1,11 +1,10 @@
-import { Text, Box, Space, Flex } from '@mantine/core'
-// import icon from '../../assets/basket2.svg'
-import useProducts from '../../services/useCards.tsx'
+import { Text, Box, Space, Group } from '@mantine/core'
+import getProductsAPI from '../../services/getProductsAPI.tsx'
 import ProdutCart from '../ProductCard/ProductCard.tsx'
 
 
 export default function Main() {
-	const { catalog } = useProducts()
+	const { catalog, loading } = getProductsAPI()
 
 	return (
 		<>
@@ -14,9 +13,17 @@ export default function Main() {
 					<Space h={60} />
 					<Text component='h2' fz={32} fw={600}>Catalog</Text>
 					<Space h={49} />
-					<Flex>
-						<ProdutCart catalog={catalog}></ProdutCart>
-					</Flex>
+					<Group wrap='wrap'>
+						{loading ? 'Происходит загрузка продуктов' :
+							catalog.map(({ id, name, price, image, category }) => (<ProdutCart
+								key={id + name}
+								name={name}
+								price={price}
+								image={image}
+								category={category}
+							/>)
+							)}
+					</Group>
 				</Box>
 			</Box>
 		</>
