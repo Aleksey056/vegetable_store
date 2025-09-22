@@ -1,4 +1,4 @@
-import { ActionIcon, Box, Button, Card, Flex, Group, Image, Space, Text } from "@mantine/core";
+import { ActionIcon, Button, Card, Flex, Group, Image, Text } from "@mantine/core";
 import basket from '../../assets/basketGreen.svg'
 import type { Product } from "../../types/Product";
 import { IconMinus, IconPlus } from "@tabler/icons-react";
@@ -11,11 +11,8 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 	return (
 		<Card bdrs={24} w={302} h={414} py={16}>
 			<Flex direction={'column'} justify={'center'} gap={16}>
-				{/* <Card.Section> */}
-				<Image src={image} w={276} h={276}></Image>
-				{/* </Card.Section> */}
 
-				{/* <Space h={16} /> */}
+				<Image src={image} w={276} h={276}></Image>
 
 				<Group justify="space-between">
 					<Group gap={12} justify="space-between">
@@ -25,14 +22,10 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 
 					<Group gap={10}>
 						<ActionIcon onClick={decrement} bg={'#DEE2E6'} size={30} bdrs={8}><IconMinus size={12} color="black" /></ActionIcon>
-
 						<Text>{value}</Text>
-
 						<ActionIcon onClick={increment} bg={'#DEE2E6'} size={30} bdrs={8}><IconPlus size={12} color="black" /></ActionIcon>
 					</Group>
 				</Group>
-
-				{/* <Space h={16} /> */}
 
 				<Flex align={'center'} justify={'space-between'} >
 					<Text fw={600} fz={20}>$ {price * value}</Text>
@@ -41,6 +34,7 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 						rightSection={<Image src={basket}></Image>}>
 					</Button>
 				</Flex>
+
 			</Flex>
 		</Card >
 	)
