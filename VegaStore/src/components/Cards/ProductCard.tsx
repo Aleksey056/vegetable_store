@@ -3,10 +3,19 @@ import basket from '../../assets/basketGreen.svg'
 import type { Product } from "../../types/Product";
 import { IconMinus, IconPlus } from "@tabler/icons-react";
 import { useCounter } from "@mantine/hooks";
+// import { useState } from "react";
 
 export default function ProdutCart({ id, name, price, image }: Product) {
 
+
+
 	const [value, { increment, decrement }] = useCounter(1, { min: 0 }); // увеличение/уменьшение количества товаров (для карточки)
+
+	// const [count, setCount] = useState(0)
+
+	const handleAddPopup = () => {
+		// перекинуть id, value, image, 
+	}
 
 	return (
 		<Card bdrs={24} w={302} h={414} py={16}>
@@ -31,7 +40,7 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 					<Text fw={600} fz={20}>$ {price * value}</Text>
 					<Button w={204} h={44} bg={'#E7FAEB'} bdrs={8}
 						leftSection={<Text color="#3B944E" fw={600} fz={16}>Add to card</Text>}
-						rightSection={<Image src={basket}></Image>}>
+						rightSection={<Image src={basket}></Image>} onClick={handleAddPopup}>
 					</Button>
 				</Flex>
 

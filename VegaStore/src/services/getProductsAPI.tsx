@@ -16,10 +16,9 @@ export default function useProducts() {
 			try {
 				const products = await ky.get(url).json<Product[]>();
 				setCatalog(products)
+				setLoading(false)
 			} catch (err) {
 				console.log('Ошибка загрузки товарок', err)
-			} finally {
-				setLoading(false)
 			}
 
 		}
