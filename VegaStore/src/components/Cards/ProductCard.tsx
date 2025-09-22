@@ -1,20 +1,24 @@
-import { ActionIcon, Button, Card, Flex, Group, Image, Text } from "@mantine/core";
+import { Button, Card, Flex, Group, Image, Text } from "@mantine/core";
 import basket from '../../assets/basketGreen.svg'
 import type { Product } from "../../types/Product";
-import { IconMinus, IconPlus } from "@tabler/icons-react";
-import { useCounter } from "@mantine/hooks";
-// import { useState } from "react";
+import Stepper from "../Stepper/Stepper";
+// import { useCounter } from "@mantine/hooks";
+import { useContext, useState } from "react";
+import { ContextQuantity } from "../../App";
 
 export default function ProdutCart({ id, name, price, image }: Product) {
 
+	const { setQuantity } = useContext(ContextQuantity)
+	// const { setCart } = useContext(ContextCart)
 
 
-	const [value, { increment, decrement }] = useCounter(1, { min: 0 }); // увеличение/уменьшение количества товаров (для карточки)
+	const [value, setValue] = useState(1);
 
-	// const [count, setCount] = useState(0)
 
 	const handleAddPopup = () => {
-		// перекинуть id, value, image, 
+		setQuantity(value)
+		// , { id, name, price, image }
+		setValue(1)
 	}
 
 	return (
@@ -29,13 +33,9 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 						<Text color="#868E96" component="span" fw={600} fz={14}>{name.split('-')[1]}</Text>
 					</Group>
 
-					<Group gap={10}>
-						<ActionIcon onClick={decrement} bg={'#DEE2E6'} size={30} bdrs={8}><IconMinus size={12} color="black" /></ActionIcon>
-						<Text>{value}</Text>
-						<ActionIcon onClick={increment} bg={'#DEE2E6'} size={30} bdrs={8}><IconPlus size={12} color="black" /></ActionIcon>
-					</Group>
-				</Group>
+					<Stepper value={value} onChange={setValue} />
 
+				</Group>
 				<Flex align={'center'} justify={'space-between'} >
 					<Text fw={600} fz={20}>$ {price * value}</Text>
 					<Button w={204} h={44} bg={'#E7FAEB'} bdrs={8}

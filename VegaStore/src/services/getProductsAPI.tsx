@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import ky from 'ky'
 import type { Product } from "../types/Product";
 
-
-
 export default function useProducts() {
+
+	const url = "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json"
 
 	const [catalog, setCatalog] = useState<Product[]>([])
 	const [loading, setLoading] = useState(true)
-
-	const url = "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json"
 
 	useEffect(() => {
 		const getProductsAPI = async () => {
@@ -18,7 +16,7 @@ export default function useProducts() {
 				setCatalog(products)
 				setLoading(false)
 			} catch (err) {
-				console.log('Ошибка загрузки товарок', err)
+				console.log('Ошибка загрузки каталога: ', err)
 			}
 
 		}
