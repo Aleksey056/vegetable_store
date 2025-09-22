@@ -5,12 +5,13 @@ import Header from './components/Header/Header'
 import Main from './components/Main/Main';
 import { createContext, useState } from 'react';
 
-// type Context = {
-
-// }
+export type ContextQuantity = {
+	quantity: number,
+	setQuantity: (value: number) => void;
+}
 
 // export const Context = createContext([])
-export const ContextQuantity = createContext(0)
+export const ContextQuantity = createContext<ContextQuantity | undefined>(undefined)
 // export const ContextCart = createContext({})
 
 function App() {

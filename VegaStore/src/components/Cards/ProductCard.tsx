@@ -6,6 +6,7 @@ import Stepper from "../Stepper/Stepper";
 import { useContext, useState } from "react";
 import { ContextQuantity } from "../../App";
 
+
 export default function ProdutCart({ id, name, price, image }: Product) {
 
 	const { setQuantity } = useContext(ContextQuantity)
