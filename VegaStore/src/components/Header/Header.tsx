@@ -1,6 +1,6 @@
-import { Box, Text, Button, Flex, Badge, Group, Center, Popover, Image } from '@mantine/core'
+import { Box, Text, Button, Flex, Badge, Group, Center, Popover } from '@mantine/core'
 import icon from '../../assets/basket2.svg'
-import clearBasket from '../../assets/cart_empty.svg'
+import PopupCard from '../Cards/PopupCard'
 
 
 export default function Header() {
@@ -21,16 +21,20 @@ export default function Header() {
 						</Box>
 					</Popover.Target>
 
-					<Popover.Dropdown bg={'none'} bd={'none'} >
+					{/* <Popover.Dropdown bg={'none'} bd={'none'} >
 						<Flex w={301} h={227} bg={'#FFFFFF'} bdrs={16} direction={"column"} justify={'center'} align={'center'} style={{ boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)', }} hidden={false} pos={'absolute'} right={-60}	>
 							<Image src={clearBasket} w={118} h={107} mb={24} />
 							<Text color="#868E96" >You cart is empty!</Text>
 						</ Flex >
+					</Popover.Dropdown> */}
+
+					<Popover.Dropdown bg={'none'} bd={'none'} >
+						<PopupCard ></PopupCard>
 					</Popover.Dropdown>
 
 				</Popover>
 
-				{/* <PopupCard ></PopupCard> */}
+				{/* */}
 			</Flex >
 
 		</Center >
