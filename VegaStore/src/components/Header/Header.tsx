@@ -24,7 +24,13 @@ export default function Header() {
 					<Popover.Target>
 						<Box>
 
-							<Button color='#54B46A' w={144} h={44} display={Flex} ta={'center'} bdrs={8} leftSection={<Text>{totalQuantity}</Text>} rightSection={<img src={icon} />} >
+							<Button color='#54B46A' w={144} h={44} display={Flex} ta={'center'} bdrs={8}
+								leftSection={
+									totalQuantity > 0 ? (
+										<Text w={20} h={20} bg={'white'} color='black' bdrs={36}>{totalQuantity}
+										</Text>) : null
+								}
+								rightSection={<img src={icon} />} >
 								<Text fz={16} fw={600}>Cart</Text>
 							</Button>
 
