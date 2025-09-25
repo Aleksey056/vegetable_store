@@ -1,9 +1,10 @@
 
 
 export type Product = {
-	id: string;
+	id: string | undefined;
 	name: string;
 	image: string;
 	price: number;
-	category: string;
+	category?: string;
+	value: number;
 }

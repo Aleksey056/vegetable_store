@@ -6,39 +6,45 @@ import Main from './components/Main/Main';
 import { createContext, useState } from 'react';
 import type { Product } from './types/Product';
 
-export type ContextQuantity = {
-	quantity: number,
-	setQuantity: (value: number) => void,
-}
-
-export type ContextCart = {
+export type ContextBasketType = {
 	cart: Product[],
-	setCart: ({ }) => void,
+	setCart: React.Dispatch<React.SetStateAction<Product[]>>,
 }
 
-// export const Context = createContext([])
-export const ContextQuantity = createContext<ContextQuantity | undefined>(undefined)
-export const ContextCart = createContext({})
+export const ContextBasket = createContext<ContextBasketType>({
+	cart: [],
+	setCart: () => { },
+})
 
 function App() {
-	const [quantity, setQuantity] = useState(0);
-	const [cart, setCart] = useState({});
-
-	console.log('quantity in app', quantity);
+	const [cart, setCart] = useState<Product[]>([]);
 
 	console.log('cart in app: ', cart);
 
+	// 	const addToBasket = (cart: CartBasket) => {
+	// 		// const {id, name, value, image, price, }
+	// 		const AvailableInBasket = cart.find(el => el.id === cart.id); // имеется в корзине
+	// 		if (AvailableInBasket) {
+	// 			const newCartToBasket = cart.map(el => {
+	// 				if (el.id === cart.id) {
+	// 					return (...el, el.value + value)
+	// 		}
+	// 		return el
+	// 	}).filter(el => elem.value > 0)
+	// 	setCart(newCartToBasket)
+	// } else {
+	// 	if CaretPosition.value
+	// }
+	// 		}
 
 	return (
 		<>
-			<ContextCart.Provider value={{ cart, setCart }}>
-				<ContextQuantity.Provider value={{ quantity, setQuantity }}>
-					<MantineProvider>
-						<Header />
-						<Main />
-					</MantineProvider >
-				</ContextQuantity.Provider >
-			</ContextCart.Provider>
+			<ContextBasket.Provider value={{ cart, setCart }}>
+				<MantineProvider>
+					<Header />
+					<Main />
+				</MantineProvider >
+			</ContextBasket.Provider>
 		</>
 	)
 }

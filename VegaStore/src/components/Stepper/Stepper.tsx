@@ -6,7 +6,7 @@ type Stepper = {
 	onChange: (value: number) => void,
 }
 
-export default function Stepper({ value, onChange, setQuantity }: Stepper) {
+export default function Stepper({ value, onChange }: Stepper) {
 
 	return (
 		<Group gap={10}>

@@ -2,16 +2,16 @@ import { Box, Space, Group, Center, Title } from '@mantine/core'
 import getProductsAPI from '../../services/getProductsAPI.tsx'
 import ProdutCart from '../Cards/ProductCard.tsx'
 import ProductCardLoader from '../Cards/ProductCardLoader.tsx';
-import PopupCard from '../Cards/PopupCard.tsx';
+
 
 export default function Main() {
 	const { catalog, loading } = getProductsAPI()
 
 	return (
 		<>
-			<Center>
-				<Box component='main' bg='#F3F5FA' maw={1440} mb={100}>
-					<Box ml={80} mr={80}>
+			<Center >
+				<Box component='main' bg='#F3F5FA' maw={1440} mb={100} >
+					<Box ml={80} mr={80} >
 						<Space h={60} />
 						<Title component='h2' fz={32} fw={600}>Catalog</Title>
 						<Space h={49} />
@@ -30,7 +30,7 @@ export default function Main() {
 								)}
 						</Group>
 					</Box>
-					<PopupCard></PopupCard>
+
 				</Box>
 			</Center>
 

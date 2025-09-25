@@ -2,22 +2,18 @@ import { Button, Card, Flex, Group, Image, Text } from "@mantine/core";
 import basket from '../../assets/basketGreen.svg'
 import type { Product } from "../../types/Product";
 import Stepper from "../Stepper/Stepper";
-// import { useCounter } from "@mantine/hooks";
 import { useContext, useState } from "react";
-import { ContextCart, ContextQuantity } from "../../App";
-export type { ContextQuantity } from '../../App'
+import { ContextBasket, type ContextBasketType } from "../../App";
 
 
 export default function ProdutCart({ id, name, price, image }: Product) {
 
-	const { setQuantity } = useContext(ContextQuantity) as ContextQuantity
-	const { setCart } = useContext(ContextCart) as ContextCart
+	const { setCart } = useContext(ContextBasket) as ContextBasketType
 
 	const [value, setValue] = useState(1);
 
 	const handleAddPopup = () => {
-		setQuantity(value)
-		setCart({ id, name, price, image })
+		setCart(prevArr => [...prevArr, { id, name, price, image, value }])
 		setValue(1)
 	}
 
