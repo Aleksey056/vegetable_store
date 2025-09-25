@@ -27,8 +27,11 @@ export default function Header() {
 							<Button color='#54B46A' w={144} h={44} display={Flex} ta={'center'} bdrs={8}
 								leftSection={
 									totalQuantity !== null ? (
-										<Text w={20} h={20} bg={'white'} color='black' bdrs={36}>{totalQuantity}
-										</Text>) : null
+										<Flex w={20} h={20} bg={'white'} bdrs={36} align={'center'} justify={'center'}>
+											<Text color='black' fw={600} fz={14}>{totalQuantity}
+											</Text>
+										</Flex>
+									) : null
 								}
 								rightSection={<img src={icon} />} >
 								<Text fz={16} fw={600}>Cart</Text>
