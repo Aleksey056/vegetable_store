@@ -13,7 +13,19 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 	const [value, setValue] = useState(1);
 
 	const handleAddPopup = () => {
-		setCart(prevArr => [...prevArr, { id, name, price, image, value }])
+		setCart(prevArr => {
+			const index = prevArr.findIndex(item => item.id === id)
+			if (index !== -1) {
+				const updateb = [...prevArr]
+				updateb[index] = {
+					...updateb[index],
+					value: updateb[index].value + value,
+				}
+				return updateb
+			} else {
+				return [...prevArr, { id, name, price, image, value }];
+			}
+		})
 		setValue(1)
 	}
 
@@ -26,7 +38,7 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 				<Group justify="space-between">
 					<Group gap={12} justify="space-between">
 						<Text component="h4" fw={600} fz={18}>{name.split(' - ')[0]}</Text>
-						<Text color="#868E96" component="span" fw={600} fz={14}>{name.split('-')[1]}</Text>
+						<Text color="#868E96" component="span" fw={600} fz={14}>{name.trim().split('-')[1]}</Text>
 					</Group>
 
 					<Stepper value={value} onChange={setValue} />
@@ -35,7 +47,7 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 				<Flex align={'center'} justify={'space-between'} >
 					<Text fw={600} fz={20}>$ {price * value}</Text>
 					<Button w={204} h={44} bg={'#E7FAEB'} bdrs={8}
-						leftSection={<Text color="#3B944E" fw={600} fz={16}>Add to card</Text>}
+						leftSection={<Text color="#3B944E" fw={600} fz={16}>Add to cart</Text>}
 						rightSection={<Image src={basket}></Image>} onClick={handleAddPopup}>
 					</Button>
 				</Flex>

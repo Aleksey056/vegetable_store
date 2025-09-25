@@ -21,22 +21,6 @@ function App() {
 
 	console.log('cart in app: ', cart);
 
-	// 	const addToBasket = (cart: CartBasket) => {
-	// 		// const {id, name, value, image, price, }
-	// 		const AvailableInBasket = cart.find(el => el.id === cart.id); // имеется в корзине
-	// 		if (AvailableInBasket) {
-	// 			const newCartToBasket = cart.map(el => {
-	// 				if (el.id === cart.id) {
-	// 					return (...el, el.value + value)
-	// 		}
-	// 		return el
-	// 	}).filter(el => elem.value > 0)
-	// 	setCart(newCartToBasket)
-	// } else {
-	// 	if CaretPosition.value
-	// }
-	// 		}
-
 	return (
 		<>
 			<ContextBasket.Provider value={{ cart, setCart }}>
