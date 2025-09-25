@@ -19,7 +19,7 @@ export const ContextBasket = createContext<ContextBasketType>({
 function App() {
 	const [cart, setCart] = useState<Product[]>([]);
 
-	console.log('cart in app: ', cart);
+	// console.log('cart in app: ', cart);
 
 	return (
 		<>

@@ -1,9 +1,15 @@
 import { Box, Text, Button, Flex, Badge, Group, Center, Popover } from '@mantine/core'
 import icon from '../../assets/basket2.svg'
 import PopupCard from '../Cards/PopupCard'
+import { ContextBasket, type ContextBasketType } from '../../App'
+import { useContext } from 'react'
 
 
 export default function Header() {
+
+	const { cart } = useContext(ContextBasket) as ContextBasketType
+
+	const totalQuantity = cart.reduce((acc, item) => acc + item.value, null);
 
 	return (
 		<Center>
@@ -17,16 +23,13 @@ export default function Header() {
 				<Popover>
 					<Popover.Target>
 						<Box>
-							<Button color='#54B46A' w={144} h={44} display={Flex} ta={'center'} bdrs={8} leftSection={<Text fz={16} fw={600}>Cart</Text>} rightSection={<img src={icon} />} />
+
+							<Button color='#54B46A' w={144} h={44} display={Flex} ta={'center'} bdrs={8} leftSection={<Text>{totalQuantity}</Text>} rightSection={<img src={icon} />} >
+								<Text fz={16} fw={600}>Cart</Text>
+							</Button>
+
 						</Box>
 					</Popover.Target>
-
-					{/* <Popover.Dropdown bg={'none'} bd={'none'} >
-						<Flex w={301} h={227} bg={'#FFFFFF'} bdrs={16} direction={"column"} justify={'center'} align={'center'} style={{ boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)', }} hidden={false} pos={'absolute'} right={-60}	>
-							<Image src={clearBasket} w={118} h={107} mb={24} />
-							<Text color="#868E96" >You cart is empty!</Text>
-						</ Flex >
-					</Popover.Dropdown> */}
 
 					<Popover.Dropdown bg={'none'} bd={'none'} >
 						<PopupCard ></PopupCard>
