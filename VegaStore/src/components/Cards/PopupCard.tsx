@@ -20,6 +20,9 @@ export default function PopupCard() {
 		});
 	};
 
+	const allSum = cart.reduce((acc, item) => acc + item.price * item.value, 0);
+
+
 	if (cart.length > 0) {
 		return (
 			<>
@@ -40,13 +43,9 @@ export default function PopupCard() {
 								<Stepper
 									value={item.value}
 									onChange={(value) => removeFromCart(item.id, value)} />
-
 							</Flex>
-
 							{index !== cart.length - 1 && (
-								// <Flex justify={'flex-end'} right={0}>
 								<Divider m={14} miw={320} h={1} my={10} mr={0} ml={'auto'} />)}
-
 						</>
 					))}
 
@@ -55,7 +54,7 @@ export default function PopupCard() {
 							Total
 						</Text>
 						<Text fw={600} fz={16}>
-							AllSum
+							$ {allSum}
 						</Text>
 					</Flex>
 				</Flex >
