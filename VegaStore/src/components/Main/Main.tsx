@@ -26,6 +26,7 @@ export default function Main() {
 									price={price}
 									image={image}
 									category={category}
+									value={1}
 								/>)
 								)}
 						</Group>

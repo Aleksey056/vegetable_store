@@ -10,13 +10,9 @@ export default function Stepper({ value, onChange }: Stepper) {
 
 	return (
 		<Group gap={10}>
-
 			<ActionIcon onClick={() => onChange(value - 1)} bg={'#DEE2E6'} size={30} bdrs={8}><IconMinus size={12} color="black" /></ActionIcon>
-
 			<Text>{value}</Text>
-
 			<ActionIcon onClick={() => onChange(value + 1)} bg={'#DEE2E6'} size={30} bdrs={8}><IconPlus size={12} color="black" /></ActionIcon>
-
 		</Group>
 	)
 }

@@ -3,7 +3,6 @@ import ky from 'ky'
 import type { Product } from "../types/Product";
 
 export default function useProducts() {
-
 	const url = "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json"
 
 	const [catalog, setCatalog] = useState<Product[]>([])
@@ -18,10 +17,8 @@ export default function useProducts() {
 			} catch (err) {
 				console.log('Ошибка загрузки каталога: ', err)
 			}
-
 		}
 		getProductsAPI()
 	}, [])
-
 	return { loading, catalog }
 }

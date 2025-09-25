@@ -1,11 +1,10 @@
-import { Divider, Flex, Group, Image, Text } from "@mantine/core";
+import { Box, Divider, Flex, Group, Image, Text } from "@mantine/core";
 import clearBasket from '../../assets/cart_empty.svg'
 import { useContext } from "react";
 import { ContextBasket, type ContextBasketType } from "../../App";
 import Stepper from "../Stepper/Stepper";
 
 export default function PopupCard() {
-
 	const { cart, setCart } = useContext(ContextBasket) as ContextBasketType
 
 	const removeFromCart = (id: string, value: number) => {
@@ -22,14 +21,13 @@ export default function PopupCard() {
 
 	const allSum = cart.reduce((acc, item) => acc + item.price * item.value, 0);
 
-
 	if (cart.length > 0) {
 		return (
 			<>
 				<Flex bg={'#FFFFFF'} bdrs={16} style={{ boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)', }} pos={'absolute'} right={-60} align={'center'} p={24} direction={'column'}>
 					{cart.map((item, index) => (
-						<>
-							<Flex w={396} h={64} align={'center'} justify={'space-between'} key={item.id + item.price}>
+						<Box key={item.id + item.price}>
+							<Flex w={396} h={64} align={'center'} justify={'space-between'} >
 								<Flex gap={12}>
 									<Image w={64} h={64} src={item.image} ></Image>
 									<Flex direction={'column'}>
@@ -46,9 +44,8 @@ export default function PopupCard() {
 							</Flex>
 							{index !== cart.length - 1 && (
 								<Divider m={14} miw={320} h={1} my={10} mr={0} ml={'auto'} />)}
-						</>
+						</Box>
 					))}
-
 					<Flex mt={12} pt={12} w={396} style={{ borderTop: '1px solid #DEE2E6' }} justify={'space-between'}>
 						<Text fw={600} fz={16} >
 							Total
@@ -58,7 +55,6 @@ export default function PopupCard() {
 						</Text>
 					</Flex>
 				</Flex >
-
 			</>
 		)
 	} else {
