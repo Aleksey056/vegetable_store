@@ -16,12 +16,12 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 		setCart(prevArr => {
 			const index = prevArr.findIndex(item => item.id === id)
 			if (index !== -1) {
-				const updateb = [...prevArr]
-				updateb[index] = {
-					...updateb[index],
-					value: updateb[index].value + value,
+				const update = [...prevArr]
+				update[index] = {
+					...update[index],
+					value: update[index].value + value,
 				}
-				return updateb
+				return update
 			} else {
 				return [...prevArr, { id, name, price, image, value }];
 			}
