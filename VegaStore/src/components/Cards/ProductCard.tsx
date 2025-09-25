@@ -15,7 +15,7 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 	const handleAddPopup = () => {
 		setCart(prevArr => {
 			const index = prevArr.findIndex(item => item.id === id)
-			if (index !== -1) {
+			if (index >= 0) {
 				const update = [...prevArr]
 				update[index] = {
 					...update[index],
