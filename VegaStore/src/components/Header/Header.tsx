@@ -26,7 +26,7 @@ export default function Header() {
 
 							<Button color='#54B46A' w={144} h={44} display={Flex} ta={'center'} bdrs={8}
 								leftSection={
-									totalQuantity > 0 ? (
+									totalQuantity !== null ? (
 										<Text w={20} h={20} bg={'white'} color='black' bdrs={36}>{totalQuantity}
 										</Text>) : null
 								}

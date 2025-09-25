@@ -25,7 +25,7 @@ export default function PopupCard() {
 			<>
 				<Flex bg={'#FFFFFF'} bdrs={16} style={{ boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)', }} pos={'absolute'} right={-60} align={'center'} p={24}>
 					{cart.map(item => (
-						<Flex w={396} h={80} align={'center'} justify={'space-between'}>
+						<Flex w={396} h={80} align={'center'} justify={'space-between'} key={item.id + item.price}>
 							<Image w={64} h={64} src={item.image} ></Image>
 							<Group gap={12} justify="space-between">
 								<Text component="h4" fw={600} fz={18}>{item.name.split(' - ')[0]}</Text>
