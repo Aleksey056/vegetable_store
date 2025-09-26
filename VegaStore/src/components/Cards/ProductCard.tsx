@@ -1,15 +1,19 @@
 import { Button, Card, Flex, Group, Image, Text } from "@mantine/core";
 import basket from '../../assets/basketGreen.svg'
+import basketHover from '../../assets/basket.svg'
 import type { Product } from "../../types/Product";
 import Stepper from "../Stepper/Stepper";
 import { useContext, useState } from "react";
 import { ContextBasket, type ContextBasketType } from "../../App";
+import { useHover } from "@mantine/hooks";
 
 export default function ProdutCart({ id, name, price, image }: Product) {
 
 	const { setCart } = useContext(ContextBasket) as ContextBasketType
 
 	const [value, setValue] = useState(1);
+
+	const { hovered, ref } = useHover();
 
 	const handleAddPopup = () => {
 		setCart(prevArr => {
@@ -41,10 +45,17 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 				</Group>
 				<Flex align={'center'} justify={'space-between'} >
 					<Text fw={600} fz={20}>$ {price * value}</Text>
-					<Button disabled={value < 1} w={204} h={44} bg={'#E7FAEB'} bdrs={8}
-						leftSection={<Text color="#3B944E" fw={600} fz={16}>Add to cart</Text>}
-						rightSection={<Image src={basket}></Image>} onClick={handleAddPopup}>
-					</Button>
+					{hovered ?
+						<Button ref={ref} disabled={value < 1} w={204} h={44} bg={'#3B944E'} bdrs={8}
+							leftSection={<Text fw={600} fz={16}>Add to cart</Text>}
+							rightSection={<Image src={basketHover}></Image>} onClick={handleAddPopup}>
+						</Button>
+
+						:
+						<Button ref={ref} disabled={value < 1} w={204} h={44} bg={'#E7FAEB'} bdrs={8}
+							leftSection={<Text fw={600} fz={16} color="#3B944E">Add to cart</Text>}
+							rightSection={<Image src={basket}></Image>} onClick={handleAddPopup}>
+						</Button>}
 				</Flex>
 			</Flex>
 		</Card >
