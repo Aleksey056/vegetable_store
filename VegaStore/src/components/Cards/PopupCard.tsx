@@ -35,7 +35,7 @@ export default function PopupCard() {
 											<Text component="h4" fw={600} fz={18}>{item.name.split(' - ')[0]}</Text>
 											<Text color="#868E96" component="span" fw={600} fz={14}>{item.name.trim().split('-')[1]}</Text>
 										</Group>
-										<Text fw={600} fz={20}>き  {item.price * item.value}</Text>
+										<Text fw={600} fz={20}>$ {item.price * item.value}</Text>
 									</Flex>
 								</Flex>
 								<Stepper
