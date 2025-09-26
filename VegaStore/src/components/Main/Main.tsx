@@ -9,7 +9,7 @@ export default function Main() {
 
 	return (
 		<>
-			<Center >
+			<Center>
 				<Box component='main' bg='#F3F5FA' maw={1440} mb={100} >
 					<Box ml={80} mr={80} >
 						<Space h={60} />
