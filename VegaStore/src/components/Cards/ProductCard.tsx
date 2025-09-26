@@ -1,4 +1,4 @@
-import { Button, Card, Flex, Group, Image, Text } from "@mantine/core";
+import { Alert, Button, Card, Flex, Group, Image, Text } from "@mantine/core";
 import basket from '../../assets/basketGreen.svg'
 import type { Product } from "../../types/Product";
 import Stepper from "../Stepper/Stepper";
@@ -41,7 +41,7 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 				</Group>
 				<Flex align={'center'} justify={'space-between'} >
 					<Text fw={600} fz={20}>$ {price * value}</Text>
-					<Button w={204} h={44} bg={'#E7FAEB'} bdrs={8}
+					<Button disabled={value < 1} w={204} h={44} bg={'#E7FAEB'} bdrs={8}
 						leftSection={<Text color="#3B944E" fw={600} fz={16}>Add to cart</Text>}
 						rightSection={<Image src={basket}></Image>} onClick={handleAddPopup}>
 					</Button>
