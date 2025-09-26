@@ -1,4 +1,4 @@
-import { Alert, Button, Card, Flex, Group, Image, Text } from "@mantine/core";
+import { Button, Card, Flex, Group, Image, Text } from "@mantine/core";
 import basket from '../../assets/basketGreen.svg'
 import type { Product } from "../../types/Product";
 import Stepper from "../Stepper/Stepper";
