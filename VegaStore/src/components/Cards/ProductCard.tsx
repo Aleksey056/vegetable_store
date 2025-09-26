@@ -50,7 +50,6 @@ export default function ProdutCart({ id, name, price, image }: Product) {
 							leftSection={<Text fw={600} fz={16}>Add to cart</Text>}
 							rightSection={<Image src={basketHover}></Image>} onClick={handleAddPopup}>
 						</Button>
-
 						:
 						<Button ref={ref} disabled={value < 1} w={204} h={44} bg={'#E7FAEB'} bdrs={8}
 							leftSection={<Text fw={600} fz={16} color="#3B944E">Add to cart</Text>}
